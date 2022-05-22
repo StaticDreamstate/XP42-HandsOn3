@@ -68,3 +68,18 @@ CREATE TABLE `atendimentos`(
 ) ENGINE InnoDB DEFAULT CHARSET = latin1;
 
 
+insert into `atendimentos` (
+	`id_paciente`,
+	`id_psicologo`,
+	`data_atendimento`,
+	`observacao`
+)
+
+values (
+	1,
+	1,
+	DEFAULT,
+	'There is no salvation. We must sacrifice as soon as possible.'
+);
+
+
