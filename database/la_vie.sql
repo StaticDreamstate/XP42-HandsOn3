@@ -35,7 +35,7 @@ CREATE TABLE `pacientes` (
 	`nome` varchar(50) NOT NULL,
 	`sobrenome` varchar(100) NOT NULL,
 	`email`varchar(150) NOT NULL,
-	`data_nascimento` date DEFAULT NOW(),
+	`data_nascimento` date NOT NULL,
 	PRIMARY KEY(`id`)
 ) ENGINE = InnoDB DEFAULT CHARSET = latin1;
 
