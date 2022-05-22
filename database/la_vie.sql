@@ -58,7 +58,7 @@ values (
 CREATE TABLE `atendimentos`(
 	`id_paciente` int NOT NULL,
 	`id_psicologo` int NOT NULL,
-	`data_atendimento` date DEFAULT NOW(),
+	`data_atendimento` date DEFAULT NOW() NOT NULL,
 	`observacao` varchar(150) NOT NULL,
 	UNIQUE KEY `UK_atendimento` (`id_paciente`, `id_psicologo`),
 	KEY `FK_paciente` (`id_paciente`),
