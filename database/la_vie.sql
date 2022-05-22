@@ -53,3 +53,20 @@ values (
 	"voices_in_my_head@batshit.uk",
 	DEFAULT
 	);
+
+
+CREATE TABLE `atendimentos`(
+	`id` int NOT NULL AUTO_INCREMENT,
+	`id_paciente` int NOT NULL,
+	`id_psicologo` int NOT NULL,
+	`data_atendimento` date DEFAULT NOW(),
+	`observacao` varchar(150) NOT NULL,
+	PRIMARY KEY(`id`),
+	UNIQUE KEY `UK_atendimento` (`id_paciente`, `id_psicologo`),
+	KEY `FK_paciente` (`id_paciente`),
+	KEY `FK_psicologo` (`id_psicologo`),
+	CONSTRAINT `FK_paciente` FOREIGN KEY (`id_paciente`) REFERENCES `pacientes` ON DELETE CASCADE,
+	CONSTRAINT `FK_psicologo` FOREIGN KEY (`id_psicologo`) REFERENCES `psicologos` (`id`) ON DELETE CASCADE
+) ENGINE InnoDB DEFAULT CHARSET = latin1;
+
+
