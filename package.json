@@ -1,0 +1,29 @@
+{
+  "name": "xp42-handson3",
+  "version": "1.0.0",
+  "description": "<h3>Exercício Hands On 3 da Gama Academy.</h3> <br> <p>Exercício em grupo sobre o uso de Api(NodeJs) e banco de dados(MySQL) para desenvolvimento back end. Os seguintes membros formam o grupo    de colaboradores: </p> <br> <ul>   <a href=\"https://github.com/StaticDreamstate/\"><li>Yuri</li></a>   <a href=\"https://github.com/EmersonSEP\"><li>Emerson</li></a>   <a href=\"https://github.com/jonathan-wanderley\"><li>Jonathan</li></a> </ul>",
+  "main": "index.js",
+  "scripts": {
+    "start": "node src/app.js",
+    "dev": "nodemon --watch src src/app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/StaticDreamstate/XP42-HandsOn3.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/StaticDreamstate/XP42-HandsOn3/issues"
+  },
+  "homepage": "https://github.com/StaticDreamstate/XP42-HandsOn3#readme",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "express": "^4.18.1",
+    "express-jwt": "^7.7.2",
+    "jsonwebtoken": "^8.5.1",
+    "nodemon": "^2.0.16",
+    "sequelize": "^6.19.2"
+  }
+}
