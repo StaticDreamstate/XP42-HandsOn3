@@ -14,15 +14,15 @@ let db = {};
 try {
   db = new Sequelize(DB_NAME, DB_USER, DB_PASS, DB_CONFIG);
 } catch (error) {
-  console.error("[!] Connection Refused. Details: ", error.message);
+  console.error("[!] Conexão recusada. Detalhes: ", error.message);
 }
 
 const hasConnection = async () => {
   try {
     await db.authenticate();
-    console.log("[OK] Connected.");
+    console.log("[OK] Conectado.");
   } catch (error) {
-    console.error("[!] Connection Refused. Details: ", error.message);
+    console.error("[!] Conexão recusada. Detalhes: ", error.message);
   }
 };
 

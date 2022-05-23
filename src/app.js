@@ -29,11 +29,11 @@ app.use(express.urlencoded({ extended: true }));
 app.use(routes);
 app.use(handleError);
 app.use((req, res) => {
-  res.status(404).json({ message: "URL not found" });
+  res.status(404).json({ message: "URL não encontrada" });
 });
 
 //Server Connction:
 
 app.listen(port, () => {
-  console.log(`[OK] Server listening [TCP Port: ${port}]`);
+  console.log(`[OK] Servidor Escutando... [Porta TCP: ${port}]`);
 });

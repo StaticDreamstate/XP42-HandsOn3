@@ -1,8 +1,12 @@
+//Requires:
+
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 
 const Usuario = require("../models/Usuario");
 const secret = require("../configs/secret");
+
+//Controller:
 
 const AuthController = {
   login: async (req, res) => {
