@@ -7,4 +7,5 @@
   <a href="https://github.com/StaticDreamstate/"><li>Yuri</li></a>
   <a href="https://github.com/EmersonSEP"><li>Emerson</li></a>
   <a href="https://github.com/jonathan-wanderley"><li>Jonathan</li></a>
+  <a href="https://github.com/joaotoni"><li>João Antônio</li></a>
 </ul>
