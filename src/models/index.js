@@ -1,4 +1,4 @@
 
-const Usuario = require("./Usuario");
+const Psicologo = require("./Psicologos");
 
-module.exports = { Usuario, };
+module.exports = { Psicologo, };
