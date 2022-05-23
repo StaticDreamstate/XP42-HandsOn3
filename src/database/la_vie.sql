@@ -1,11 +1,10 @@
-DROP DATABASE `laVie_clinica`;
+DROP DATABASE IF EXISTS `laVie_clinica`;
 CREATE DATABASE `laVie_clinica`;
 USE `laVie_clinica`;
 
 CREATE TABLE `psicologos` (
 	`id` int NOT NULL AUTO_INCREMENT,
 	`nome` varchar(50) NOT NULL,
-	`sobrenome` varchar(100) NOT NULL,
 	`email` varchar(150) NOT NULL,
 	`senha` varchar(255) NOT NULL,
 	`apresentacao` varchar(255) NOT NULL,
@@ -16,15 +15,13 @@ insert into `psicologos` (
 
 	`id`,
 	`nome`,
-	`sobrenome`,
 	`email`,
 	`senha`, 
 	`apresentacao` )
 
 values (
 	1,
-	'Jack',
-	'The Ripper',
+	'Jack The Ripper',
 	'whitechapel_daddy@london.uk',
 	'123kill',
 	'Come on! Everybody knows me!'
@@ -33,7 +30,6 @@ values (
 CREATE TABLE `pacientes` (
 	`id` int NOT NULL AUTO_INCREMENT,
 	`nome` varchar(50) NOT NULL,
-	`sobrenome` varchar(100) NOT NULL,
 	`email`varchar(150) NOT NULL,
 	`data_nascimento` date NOT NULL,
 	PRIMARY KEY(`id`)
@@ -42,23 +38,21 @@ CREATE TABLE `pacientes` (
 insert into `pacientes` (
 	`id`,
 	`nome`,
-	`sobrenome`,
 	`email`, 
 	`data_nascimento` )
 
 values (
 	1, 
-	"Lady Burnt",
-	"Mind",
+	"Lady BurntMind",
 	"voices_in_my_head@batshit.uk",
-	DEFAULT
+	"1910-10-10"
 	);
 
 
 CREATE TABLE `atendimentos`(
 	`id_paciente` int NOT NULL,
 	`id_psicologo` int NOT NULL,
-	`data_atendimento` date DEFAULT NOW() NOT NULL,
+	`data_atendimento` datetime DEFAULT NOW() NOT NULL,
 	`observacao` varchar(150) NOT NULL,
 	UNIQUE KEY `UK_atendimento` (`id_paciente`, `id_psicologo`),
 	KEY `FK_paciente` (`id_paciente`),
