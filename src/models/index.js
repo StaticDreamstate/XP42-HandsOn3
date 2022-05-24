@@ -1,8 +1,8 @@
 
-const Usuario = require("./Usuario");
+const Psicologo = require("./Psicologos");
 const Paciente = require('./Paciente')
 
-module.exports = { Usuario, Paciente };
+module.exports = { Psicologo, Paciente };
 
 
 
