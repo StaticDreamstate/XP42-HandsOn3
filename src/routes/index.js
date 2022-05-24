@@ -1,5 +1,7 @@
 //Requires:
 const express = require("express");
+const atendimentosController = require("../controllers/atendimentos");
+
 const router = express.Router();
 const pacientesController = require('../controllers/pacienteController')
 
@@ -21,6 +23,11 @@ router.post("/auth/login", authLoginValidator, AuthController.login);
 router.post("/auth/register", authRegisterValidator, AuthController.store);
 module.exports = router;
 
+router.get('/atendimentos', atendimentosController.listar);
+router.get('/atendimentos/:id', atendimentosController.exibir)
+router.post('/atendimentos', atendimentosController.agendar);
+
+module.exports = router;
 
 
 
