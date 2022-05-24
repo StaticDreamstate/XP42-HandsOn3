@@ -5,9 +5,10 @@ const Atendimentos = db.define(
   "atendimentos",
   {
     id: {
-        type: DataTypes.INTEGER,
-        primaryKey: true,
-      },
+      type: DataTypes.INTEGER,
+      primaryKey: true,
+      autoIncrement: true,
+    },
     id_paciente: {
       type: DataTypes.INTEGER,
       allowNull: false,
