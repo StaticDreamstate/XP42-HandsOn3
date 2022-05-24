@@ -2,9 +2,7 @@
 
 const atendimentosController = {
     listar : async (req, res) =>{
-        // await   Atendimentos.sync({
-        //     force :true
-        //}) 
+        await Atendimentos.sync({}) 
     } ,
     exibir : async () =>{
 
