@@ -1,4 +1,5 @@
 const Atendimentos = require("../models/Atendimentos");
+const db = require('../database');
 
 const atendimentosController = {
     listar : async (req, res) =>{
@@ -17,8 +18,21 @@ const atendimentosController = {
         res.json(exibir);
     },
     agendar : async (req,res) =>{
-
-
+        
+        const {id,id_paciente, data_atendimento, observacao, id_psicologo} = req.body;
+        const novoAgendamento = await Atendimentos.create({
+            id,
+            id_psicologo,
+            id_paciente,
+            data_atendimento,
+            observacao,
+        });
+        if(!novoAgendamento){
+            return res.status(400).json({mensagem: "os dados não foram preenchidos corretamente, tente de novo!"});
+        } else
+        if(novoAgendamento){
+            return res.status(201).json(novoAgendamento);
+        }
     },
 }
 
