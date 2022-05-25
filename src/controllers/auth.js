@@ -35,30 +35,6 @@ const AuthController = {
       user,
     });
   },
-  store: async (req, res) => {
-    const { nome, email, senha, apresentacao } = req.body;
-    const hashSenha = bcrypt.hashSync(senha, 10);
-
-    const { id } = await Psicologo.create({
-      nome,
-      email,
-      senha: hashSenha,
-      apresentacao,
-    });
-
-    const user = {
-      id,
-      nome,
-      email,
-    };
-
-    const token = jwt.sign(user, secret.key);
-
-    return res.status(201).json({
-      token,
-      user,
-    });
-  },
 };
 
 module.exports = AuthController;
