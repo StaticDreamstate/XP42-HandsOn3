@@ -51,20 +51,20 @@ values (
 
 CREATE TABLE `atendimentos`(
 	`id` int NOT NULL AUTO_INCREMENT PRIMARY KEY,
-	`id_paciente` int NOT NULL,
-	`id_psicologo` int NOT NULL,
+	`paciente_id` int NOT NULL,
+	`psicologo_id` int NOT NULL,
 	`data_atendimento` datetime DEFAULT NOW() NOT NULL,
 	`observacao` varchar(150) NOT NULL,
-	KEY `FK_paciente` (`id_paciente`),
-	KEY `FK_psicologo` (`id_psicologo`),
-	CONSTRAINT `FK_paciente` FOREIGN KEY (`id_paciente`) REFERENCES `pacientes` (`id`) ON DELETE CASCADE,
-	CONSTRAINT `FK_psicologo` FOREIGN KEY (`id_psicologo`) REFERENCES `psicologos` (`id`) ON DELETE CASCADE
+	KEY `FK_paciente` (`paciente_id`),
+	KEY `FK_psicologo` (`psicologo_id`),
+	CONSTRAINT `FK_paciente` FOREIGN KEY (`paciente_id`) REFERENCES `pacientes` (`id`) ON DELETE CASCADE,
+	CONSTRAINT `FK_psicologo` FOREIGN KEY (`psicologo_id`) REFERENCES `psicologos` (`id`) ON DELETE CASCADE
 ) ENGINE InnoDB DEFAULT CHARSET = latin1;
 
 
 insert into `atendimentos` (
-	`id_paciente`,
-	`id_psicologo`,
+	`paciente_id`,
+	`psicologo_id`,
 	`data_atendimento`,
 	`observacao`
 )
