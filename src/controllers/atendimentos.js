@@ -27,6 +27,7 @@ const atendimentosController = {
                 }
             ]
         });
+
         if(!exibir){
             return res.status(404).json({mensagem : "Id não encontrado"});
         }
@@ -36,8 +37,8 @@ const atendimentosController = {
     agendar : async (req,res) =>{
         const { paciente_id, data_atendimento, observacao } = req.body;
         const psicologo_id = req.auth.id;
+      
         const paciente = await Paciente.findByPk(paciente_id);
-
         if (!paciente) {
             return res.json({mensagem: "Id do paciente inválido"});
         }
