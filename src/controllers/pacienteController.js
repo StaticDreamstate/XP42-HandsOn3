@@ -1,5 +1,4 @@
 
-const monent = require("moment");
 const { Paciente } =  require('../models');
 const Pacientes = require('../models/Paciente');
 
@@ -46,6 +45,7 @@ const pacientesController = {
       nome,
       email,
       data_nascimento,
+
     });
     if (!novoPaciente) {
       return res
@@ -53,14 +53,12 @@ const pacientesController = {
         .json({ mensagem: "Os dados não estão corretos, tente novamente!" });
     } else {
       if (novoPaciente) {
+        
         return res.status(201).json(novoPaciente);
       }
     }
   },
   
-
-
-
   deletarPaciente: async (req, res) => {
     const { id } = req.params;
 

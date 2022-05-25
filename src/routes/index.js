@@ -9,6 +9,7 @@ const AuthController = require("../controllers/auth");
 const authLoginValidator = require("../validators/auth/login");
 const authRegisterValidator = require("../validators/auth/register");
 
+
 //Routes-Controllers:
 
 
