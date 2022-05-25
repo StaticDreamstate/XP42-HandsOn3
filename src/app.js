@@ -4,8 +4,8 @@
 const express = require("express");
 const db = require("./database");
 const handleError = require("./middlewares/handleError");
-const authMiddleware = require("./middlewares/auth");
-const jwtMiddleware = require("./middlewares/jwt");
+// const authMiddleware = require("./middlewares/auth");
+// const jwtMiddleware = require("./middlewares/jwt");
 const routes = require("./routes");
 
 //Instances:
@@ -13,8 +13,8 @@ const routes = require("./routes");
 const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(jwtMiddleware.unless({ path: ["/login"] }));
-app.use(authMiddleware);
+// app.use(jwtMiddleware.unless({ path: ["/login"] }));
+// app.use(authMiddleware);
 
 db.hasConnection();
 
