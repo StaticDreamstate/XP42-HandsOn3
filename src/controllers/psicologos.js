@@ -42,8 +42,7 @@ const PsicologoController = {
       const psi = await Psicologo.findByPk(id);
 
       if (!psi) {
-        res.status(404).json({ message: "Id não encontrado"});
-        //Erro fazendo a api crashar. Arrumar isso.
+        return res.status(404).json({ message: "Id não encontrado"});
       }
 
       await psi.destroy();
@@ -61,9 +60,7 @@ const PsicologoController = {
     const { nome, email, senha, apresentacao } = req.body;
 
     if (!req.body) {
-      res
-      .status(400)
-      .json({ error: "Parâmetros faltando ou incorretos." });
+      return res.status(400).json({ error: "Parâmetros faltando ou incorretos." });
     }
 
     const hashSenha = bcrypt.hashSync(senha, 10);
@@ -99,9 +96,7 @@ atualizar: async (req, res) => {
   const { nome, email, senha, apresentacao } = req.body;
 
   if (!req.body) {
-    res
-    .status(400)
-    .json({ error: "Parâmetros faltando ou incorretos." });
+    return res.status(400).json({ error: "Parâmetros faltando ou incorretos." });
   }
 
   const hashSenha = bcrypt.hashSync(senha, 10);
@@ -111,10 +106,7 @@ atualizar: async (req, res) => {
     const psi = await Psicologo.findByPk(id);
    
     if (!psi) {
-      res
-      .status(400)
-      .json({ error: "Parâmetros faltando ou incorretos." });
-      //Erro fazendo a api crashar. Arrumar isso.
+      return res.status(400).json({ error: "Parâmetros faltando ou incorretos." });
     }
 
     const updated = await Psicologo.update({
