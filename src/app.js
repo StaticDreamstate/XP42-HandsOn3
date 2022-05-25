@@ -14,8 +14,8 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-//app.use(jwtMiddleware.unless({ path: ["/auth/login", "/auth/register"] }));
-//app.use(authMiddleware);
+app.use(jwtMiddleware.unless({ path: ["/auth/login", "/auth/register"] }));
+app.use(authMiddleware);
 
 db.hasConnection();
 

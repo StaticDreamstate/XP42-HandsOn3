@@ -1,9 +1,9 @@
-const { Psicologos } = require("../models");
+const { Psicologo } = require("../models");
 
 module.exports = async (req, res, next) => {
   if (req.auth) {
     
-    const psi = await Psicologos.findByPk(req.auth.id);
+    const psi = await Psicologo.findByPk(req.auth.id);
     if (!psi) {
       
       next({
