@@ -9,11 +9,11 @@ const Atendimentos = db.define(
       primaryKey: true,
       autoIncrement: true,
     },
-    id_paciente: {
+    paciente_id: {
       type: DataTypes.INTEGER,
       allowNull: false,
     },
-    id_psicologo: {
+    psicologo_id: {
       type: DataTypes.INTEGER,
       allowNull: false,
     },
