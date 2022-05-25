@@ -2,6 +2,7 @@
 const express = require("express");
 const router = express.Router();
 const pacientesController = require('../controllers/pacienteController')
+const createValidate = require("../validators/auth/create");
 
 
 const AuthController = require("../controllers/auth");
@@ -13,12 +14,15 @@ const authRegisterValidator = require("../validators/auth/register");
 
 router.get('/pacientes', pacientesController.listarPaciente);
 router.get('/pacientes/:id', pacientesController.exibirPaciente)
-router.post('/pacientes', pacientesController.cadastrarPaciente);
+router.post('/pacientes',createValidate, pacientesController.cadastrarPaciente);
 router.delete('/pacientes/:id', pacientesController.deletarPaciente);
-router.put('/pacientes/:id', pacientesController.atualizarPaciente);
+router.put('/pacientes/:id',createValidate, pacientesController.atualizarPaciente);
+
 
 router.post("/auth/login", authLoginValidator, AuthController.login);
 router.post("/auth/register", authRegisterValidator, AuthController.store);
+
+
 module.exports = router;
 
 
