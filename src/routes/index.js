@@ -12,8 +12,15 @@ const pacientesController = require('../controllers/pacienteController');
 const atendimentoValidator = require('../validators/atendimentos/agendar');
 
 const createValidate = require("../validators/auth/create"); //***** */
+const dashboardController = require('../controllers/dashboardController');
 
-//Routes-Controllers:
+
+//Routes - Dashboar:
+
+router.get('/dashboard/psicologos', dashboardController.totalPsicologos);
+router.get('/dashboard/atendimentos', dashboardController.totalAtendimentos);
+router.get('/dashboard/pacientes', dashboardController.totalPacientes);
+router.get('/dashboard/media', dashboardController.mediaAtendimentos);
 
 //Login Route:
 
@@ -40,5 +47,6 @@ router.get("/psicologos/:id", psicologoController.exibir);
 router.post("/psicologos/", authCadastroValidator, psicologoController.cadastrar);
 router.put("/psicologos/:id", authCadastroValidator, psicologoController.atualizar);
 router.delete("/psicologos/:id", psicologoController.deletar);
+
 
 module.exports = router;
