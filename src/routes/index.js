@@ -1,26 +1,15 @@
 //Requires:
+
 const express = require("express");
 const router = express.Router();
-const pacientesController = require('../controllers/pacienteController')
+const dashboardController = require('../controllers/dashboardController');
 
 
-const AuthController = require("../controllers/auth");
-const authLoginValidator = require("../validators/auth/login");
-const authRegisterValidator = require("../validators/auth/register");
+//Routes - Dashboar:
 
-//Routes-Controllers:
+router.get('/dashboard/psicologos', dashboardController.totalPsicologos);
+router.get('/dashboard/atendimentos', dashboardController.totalAtendimentos);
+router.get('/dashboard/pacientes', dashboardController.totalPacientes);
+router.get('/dashboard/media', dashboardController.mediaAtendimentos);
 
-
-router.get('/pacientes', pacientesController.listarPaciente);
-router.get('/pacientes/:id', pacientesController.exibirPaciente)
-router.post('/pacientes', pacientesController.cadastrarPaciente);
-router.delete('/pacientes/:id', pacientesController.deletarPaciente);
-router.put('/pacientes/:id', pacientesController.atualizarPaciente);
-
-router.post("/auth/login", authLoginValidator, AuthController.login);
-router.post("/auth/register", authRegisterValidator, AuthController.store);
 module.exports = router;
-
-
-
-

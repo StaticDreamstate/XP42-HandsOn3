@@ -1,7 +1,5 @@
 
-const monent = require("moment")
 const { Paciente } =  require('../models');
-const Pacientes = require('../models/Paciente');
 
 const pacientesController = {
   listarPaciente: async (req, res) => {
