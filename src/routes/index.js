@@ -11,6 +11,8 @@ const atendimentosController = require("../controllers/atendimentos");
 const pacientesController = require('../controllers/pacienteController');
 const atendimentoValidator = require('../validators/atendimentos/agendar');
 
+const createValidate = require("../validators/auth/create"); //***** */
+
 //Routes-Controllers:
 
 //Login Route:
@@ -21,9 +23,9 @@ router.post("/login", authLoginValidator, AuthController.login);
 
 router.get('/pacientes', pacientesController.listarPaciente);
 router.get('/pacientes/:id', pacientesController.exibirPaciente)
-router.post('/pacientes', pacientesController.cadastrarPaciente);
+router.post('/pacientes',createValidate, pacientesController.cadastrarPaciente);
 router.delete('/pacientes/:id', pacientesController.deletarPaciente);
-router.put('/pacientes/:id', pacientesController.atualizarPaciente);
+router.put('/pacientes/:id',createValidate, pacientesController.atualizarPaciente);
 
 //CRUD - Atendimentos
 
