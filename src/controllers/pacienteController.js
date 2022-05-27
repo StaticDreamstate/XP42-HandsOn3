@@ -39,26 +39,28 @@ const pacientesController = {
 
   cadastrarPaciente: async (req, res) => {
     const { nome, email, data_nascimento } = req.body;
-   
-    const novoPaciente = await Paciente.create({
-      nome,
-      email,
-      data_nascimento,
-    });
-    if (!novoPaciente) {
-      return res
-        .status(400)
-        .json({ mensagem: "Os dados não estão corretos, tente novamente!" });
-    } else {
-      if (novoPaciente) {
-        return res.status(201).json(novoPaciente);
-      }
+
+    if (!req.body) {
+      return res.status(400).json({ error: "Parâmetros faltando ou incorretos." });
     }
-  },
+
+    try {
+
+      const { id } = novoPaciente = await Paciente.create({ 
+        nome,
+        email,
+        data_nascimento,
+    });
+
+      return res.status(200).json({ novoPaciente });
+
+   } catch (error) {
+    res
+      .status(500)
+      .json({ error: "Erro interno. Detalhes: " + error.message });
+  }
+},
   
-
-
-
   deletarPaciente: async (req, res) => {
     const { id } = req.params;
 
