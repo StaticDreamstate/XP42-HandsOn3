@@ -23,7 +23,13 @@ const PsicologoController = {
     const { id } = req.params;
 
     try {
-      const psi = await Psicologo.findByPk(id);
+      const psi = await Psicologo.findByPk(id,
+        
+        {
+          attributes: {
+             exclude: ['senha']
+          }
+        });
 
       if (psi) {
         return res.status(200).json(psi);

@@ -3,6 +3,7 @@
 const express = require("express");
 const router = express.Router();
 
+
 const AuthController = require("../controllers/auth");
 const authLoginValidator = require("../validators/auth/login");
 const authCadastroValidator = require("../validators/auth/cadastro");
@@ -12,9 +13,17 @@ const pacientesController = require('../controllers/pacienteController');
 const atendimentoValidator = require('../validators/atendimentos/agendar');
 const uptdateValidate = require("../validators/pacientes/update")
 
-const createValidate = require("../validators/pacientes/create"); //***** */
+const createValidate = require("../validators/pacientes/create");
+const dashboardController = require('../controllers/dashboardController');
 
-//Routes-Controllers:
+
+
+//Routes - Dashboar:
+
+router.get('/dashboard/psicologos', dashboardController.totalPsicologos);
+router.get('/dashboard/atendimentos', dashboardController.totalAtendimentos);
+router.get('/dashboard/pacientes', dashboardController.totalPacientes);
+router.get('/dashboard/media', dashboardController.mediaAtendimentos);
 
 //Login Route:
 
@@ -41,6 +50,7 @@ router.get("/psicologos/:id", psicologoController.exibir);
 router.post("/psicologos/", authCadastroValidator, psicologoController.cadastrar);
 router.put("/psicologos/:id", authCadastroValidator, psicologoController.atualizar);
 router.delete("/psicologos/:id", psicologoController.deletar);
+
 
 module.exports = router;
 
