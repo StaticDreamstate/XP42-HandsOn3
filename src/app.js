@@ -5,7 +5,7 @@ const express = require("express");
 const db = require("./database");
 const handleError = require("./middlewares/handleError");
 // const authMiddleware = require("./middlewares/auth");
-// const jwtMiddleware = require("./middlewares/jwt");
+//const jwtMiddleware = require("./middlewares/jwt");
 const routes = require("./routes");
 
 //Instances:

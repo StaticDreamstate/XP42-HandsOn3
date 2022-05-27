@@ -1,6 +1,6 @@
 const Psicologo = require("./Psicologos");
 
-const Paciente = require('./Paciente')
+const Paciente = require('./Pacientes')
 const Atendimentos = require('./Atendimentos');
 
 Atendimentos.belongsTo(Paciente, {
