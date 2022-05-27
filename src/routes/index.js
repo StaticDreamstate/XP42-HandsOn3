@@ -10,8 +10,9 @@ const psicologoController = require("../controllers/psicologos");
 const atendimentosController = require("../controllers/atendimentos");
 const pacientesController = require('../controllers/pacienteController');
 const atendimentoValidator = require('../validators/atendimentos/agendar');
+const uptdateValidate = require("../validators/pacientes/update")
 
-const createValidate = require("../validators/auth/create"); //***** */
+const createValidate = require("../validators/pacientes/create"); //***** */
 
 //Routes-Controllers:
 
@@ -25,7 +26,7 @@ router.get('/pacientes', pacientesController.listarPaciente);
 router.get('/pacientes/:id', pacientesController.exibirPaciente)
 router.post('/pacientes',createValidate, pacientesController.cadastrarPaciente);
 router.delete('/pacientes/:id', pacientesController.deletarPaciente);
-router.put('/pacientes/:id',createValidate, pacientesController.atualizarPaciente);
+router.put('/pacientes/:id',uptdateValidate, pacientesController.atualizarPaciente);
 
 //CRUD - Atendimentos
 
@@ -42,3 +43,4 @@ router.put("/psicologos/:id", authCadastroValidator, psicologoController.atualiz
 router.delete("/psicologos/:id", psicologoController.deletar);
 
 module.exports = router;
+

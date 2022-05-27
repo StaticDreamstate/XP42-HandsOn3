@@ -16,6 +16,7 @@ const pacientesController = {
     }
   },
 
+
   exibirPaciente: async (req, res) => {
     const { id } = req.params;
 
@@ -37,28 +38,53 @@ const pacientesController = {
   },
 
 
-  cadastrarPaciente: async (req, res) => {
-    const { nome, email, data_nascimento } = req.body;
-   
-    const novoPaciente = await Paciente.create({
+    cadastrarPaciente: async (req, res) => {
+
+   const { nome, email, data_nascimento } = req.body;
+
+   if (!req.body) {
+    return res.status(400).json({ error: "Parâmetros faltando ou incorretos." });
+
+   }
+   try{
+    const { id } = await Paciente.create({
       nome,
       email,
       data_nascimento,
     });
-    if (!novoPaciente) {
-      return res
-        .status(400)
-        .json({ mensagem: "Os dados não estão corretos, tente novamente!" });
-    } else {
-      if (novoPaciente) {
-        return res.status(201).json(novoPaciente);
-      }
-    }
-  },
+
+    const novoPaciente = {
+      id,
+      nome,
+      email,
+      data_nascimento,
+    };
+    return res.status(200).json({ novoPaciente });
+} catch (error) {
+  res.status(500)
+  .json({error: "Erro interno, Detalhe: "+ error.message})
+  }
+},
+
+  // cadastrarPaciente: async (req, res) => {
+  //   const { nome, email, data_nascimento } = req.body;
+   
+  //   const novoPaciente = await Paciente.create({
+  //     nome,
+  //     email,
+  //     data_nascimento,
+  //   });
+  //   if (!novoPaciente) {
+  //     return res
+  //       .status(400)
+  //       .json({ mensagem: "Os dados não estão corretos, tente novamente!" });
+  //   } else {
+  //     if (novoPaciente) {
+  //       return res.status(201).json(novoPaciente);
+  //     }
+  //   }
+  // },
   
-
-
-
   deletarPaciente: async (req, res) => {
     const { id } = req.params;
 
@@ -70,30 +96,13 @@ const pacientesController = {
       });
     }
     await paciente.destroy();
-    res.status(204).json({
-      message: "Paciente excluido",
+     res.status(204).json({
+      mensagem: "Paciente excluido",
     });
   },
 
-  //   async atualizarPaciente (req, res) {
-  //     const { id } = req.params;
-  //     const {nome, email, data_nascimento} = req.body;
 
-  //     if(!id) return res.status(400).json("id nao enviado");
-
-  //     const pacienteAtualizado =  await Paciente.update({
-  //       nome,
-  //       email,
-  //       data_nascimento,
-  //     },{
-  //       where: {
-  //         id,
-  //       },
-  //     }
-  //     );
-  //     res.json("Dados do paciente atualizado")
-  //   }
-  // };
+  
   atualizarPaciente: async (req, res) => {
     try {
       const { id } = req.params;

@@ -25,7 +25,6 @@ const Atendimentos = db.define(
       type: DataTypes.STRING,
       allowNull: false,
     },
-   
   },
   { tableName: "atendimentos", timestamps: false, underscored: true }
 );
