@@ -84,16 +84,15 @@ const pacientesController = {
   },
 
   atualizarPaciente: async (req, res) => {
-    try {
-      
+    try { 
       const { id } = req.params;
       const { nome, email, data_nascimento } = req.body;
-      const dataformat = moment(data_nascimento,"DD/MM/YYYY").format("YYYY/MM/DD")
 
+      const dataformat = moment(data_nascimento,"DD/MM/YYYY").format("YYYY/MM/DD");
       const paciente = await Paciente.findByPk(id);
 
       if (!paciente) {
-        res.status(404).json({
+        return res.status(404).json({
           mensagem: "Paciente não encontrado",
         });
       }
