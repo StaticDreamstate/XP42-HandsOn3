@@ -14,7 +14,10 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-app.use(jwtMiddleware.unless({ path: ["/login"] }));
+app.use(jwtMiddleware.unless({ path: [
+  { url: "/login", methods: ['POST'] },
+  { url: "/psicologos", methods: ['POST'] }
+] }));
 app.use(authMiddleware);
 
 
