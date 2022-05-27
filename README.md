@@ -9,3 +9,5 @@
   <a href="https://github.com/jonathan-wanderley"><li>Jonathan</li></a>
   <a href="https://github.com/joaotoni"><li>João Antônio</li></a>
 </ul>
+
+<a href="https://staticdreamstate.github.io/XP42-HandsOn3/">Documentação da API</a>
