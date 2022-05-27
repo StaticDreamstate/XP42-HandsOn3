@@ -1,4 +1,5 @@
 const moment = require("moment");
+
 const { Paciente } =  require('../models');
 
 const pacientesController = {

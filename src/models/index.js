@@ -22,3 +22,5 @@ Psicologo.hasMany(Atendimentos, {
 })
 
 module.exports = { Psicologo, Paciente, Atendimentos };
+
+

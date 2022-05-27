@@ -31,3 +31,4 @@ const Atendimentos = db.define(
 );
 
 module.exports = Atendimentos;
+
