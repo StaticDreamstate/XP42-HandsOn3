@@ -1,5 +1,5 @@
 const sequelize = require("sequelize");
-const { Psicologos, Paciente, Atendimentos } = require("../models");
+const { Psicologo, Paciente, Atendimentos } = require("../models");
 
 const dashboardController = {
   
@@ -7,7 +7,7 @@ const dashboardController = {
 
     try {
     
-    const resposta = await Psicologos.count();
+    const resposta = await Psicologo.count();
     res.status(200).json({total: resposta});
 
     } catch (error) {
@@ -50,7 +50,7 @@ const dashboardController = {
 
     try {
     
-    const resposta = await Number((Psicologos.count() / Paciente.count()).toFixed(1));
+    const resposta = await Number((Psicologo.count() / Paciente.count()).toFixed(1));
 
       res.status(200).json({ Média: resposta });
 
