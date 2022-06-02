@@ -1,4 +1,4 @@
-<h3>Exercício Hands On 3 da Gama Academy</h3>
+<h3>Exercício Hands On-3 da Gama Academy</h3>
 <br>
 <p>Exercício em grupo sobre o uso de Api(NodeJs) e banco de dados(MySQL) para desenvolvimento back end. Os seguintes membros formam o grupo 
   de colaboradores: </p>
